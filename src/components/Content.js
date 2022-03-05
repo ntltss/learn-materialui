@@ -1,45 +1,33 @@
-import React from "react";
-import BodyCard from "./BodyCard";
-import { Grid } from "@material-ui/core";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const cardContents = [
-  {
-    title: "タイトル1",
-    subheader: "サブヘッダー1",
-    avatarUrl: "https://joeschmoe.io/api/v1/random",
-    imageUrl: "https://picsum.photos/150",
-  },
-  {
-    title: "タイトル2",
-    subheader: "サブヘッダー2",
-    avatarUrl: "https://joeschmoe.io/api/v1/random",
-    imageUrl: "https://picsum.photos/150",
-  },
-  {
-    title: "タイトル3",
-    subheader: "サブヘッダー3",
-    avatarUrl: "https://joeschmoe.io/api/v1/random",
-    imageUrl: "https://picsum.photos/150",
-  },
-  {
-    title: "タイトル4",
-    subheader: "サブヘッダー4",
-    avatarUrl: "https://joeschmoe.io/api/v1/random",
-    imageUrl: "https://picsum.photos/150",
-  },
-];
+import { Grid } from "@material-ui/core";
+import BodyCard from "./BodyCard";
+
+const cardContent = {
+  avatarUrl: "https://joeschmoe.io/api/v1/random",
+  imageUrl: "https://picsum.photos/150",
+};
 
 function Content() {
+  const [post, setPosts] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://jsonplaceholder.typicode.com/posts").then((res) => {
+      setPosts(res.data);
+    });
+  }, []);
   const getCardContent = (getObj) => {
+    const bodyCardContent = { ...getObj, ...cardContent };
     return (
-      <Grid item xs={12} sm={4}>
-        <BodyCard {...getObj} />
+      <Grid item xs={12} sm={4} key={getObj.id}>
+        <BodyCard {...bodyCardContent} />
       </Grid>
     );
   };
   return (
-    <Grid container spacing="2">
-      {cardContents.map((contentObj) => getCardContent(contentObj))}
+    <Grid container spacing={2}>
+      {post.map((contentObj) => getCardContent(contentObj))}
     </Grid>
   );
 }
