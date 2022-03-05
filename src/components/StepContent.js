@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Tooltip, Badge, Avatar } from "@material-ui/core";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
@@ -60,6 +60,11 @@ function StepContent() {
           {getStepContent(activeStep, handleNext, handleBack)}
         </UserInputData.Provider>
       </Grid>
+      <Tooltip title="新着メッセージが4件あります" arrow>
+        <Badge badgeContent={"4"} color="primary">
+          <Avatar src="/fujisan.jpg" />
+        </Badge>
+      </Tooltip>
     </Grid>
   );
 }

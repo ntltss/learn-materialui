@@ -1,7 +1,7 @@
 import { Grid } from "@material-ui/core";
 import { useForm, Controller } from "react-hook-form";
 import TextField from "@material-ui/core/TextField";
-import { Button, MenuItem } from "@material-ui/core";
+import { Button, MenuItem, Box, Container } from "@material-ui/core";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import React, { useContext } from "react";
@@ -79,6 +79,51 @@ function Basic(props) {
             次へ
           </Button>
         </form>
+      </Grid>
+      <Grid>
+        <Button color="primary" variant="contained">
+          Hello World
+        </Button>
+        <Button color="secondary" variant="outlined">
+          Hello World2
+        </Button>
+      </Grid>
+      <Grid>
+        <Container>
+          <Box style={{ display: "flex", flexDirection: "row" }}>
+            {/* (1) */}
+            <Box width={1 / 4} style={{ padding: "8px" }} border={5}>
+              {/* (2) */}
+              <Button
+                variant="contained"
+                color="primary"
+                style={{ width: "100%" }}
+              >
+                ボタン1
+              </Button>
+            </Box>
+            <Box width={1 / 2} style={{ padding: "8px" }} border={1}>
+              {/* (3) */}
+              <Button
+                variant="contained"
+                color="secondary"
+                style={{ width: "100%" }}
+              >
+                ボタン2
+              </Button>
+            </Box>
+            <Box width={1 / 4} style={{ padding: "8px" }} border={1}>
+              {/* (2) */}
+              <Button
+                variant="contained"
+                color="secondary"
+                style={{ width: "100%" }}
+              >
+                ボタン3
+              </Button>
+            </Box>
+          </Box>
+        </Container>
       </Grid>
     </Grid>
   );
