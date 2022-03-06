@@ -11,23 +11,24 @@ import Confirm from "./Confirm";
 
 export const UserInputData = React.createContext();
 
+function getStepContent(stepIndex, handleNext, handleBack) {
+  switch (stepIndex) {
+    case 0:
+      return <Basic handleNext={handleNext} />;
+    case 1:
+      return <Optional handleNext={handleNext} handleBack={handleBack} />;
+    case 2:
+      return <Confirm handleBack={handleBack} />;
+    default:
+      return "Unknown stepIndex";
+  }
+}
+
 function getSteps() {
   return ["基本項目", "任意項目", "入力確認"];
 }
 
 function StepContent() {
-  function getStepContent(stepIndex) {
-    switch (stepIndex) {
-      case 0:
-        return <Basic handleNext={handleNext} />;
-      case 1:
-        return <Optional handleNext={handleNext} handleBack={handleBack} />;
-      case 2:
-        return <Confirm handleBack={handleBack} />;
-      default:
-        return "Unknown stepIndex";
-    }
-  }
   const [currentState, setCurrentState] = React.useState({});
   const value = {
     currentState,

@@ -23,7 +23,7 @@ function getStepContent(stepIndex) {
   }
 }
 
-function About() {
+function Step123() {
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
   const handleNext = () => {
@@ -35,6 +35,8 @@ function About() {
   const handleReset = () => {
     setActiveStep(0);
   };
+  console.log(steps);
+  console.log(steps.length);
   return (
     <Grid container>
       <Grid sm={2} />
@@ -67,4 +69,4 @@ function About() {
   );
 }
 
-export default About;
+export default Step123;

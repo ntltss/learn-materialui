@@ -4,7 +4,7 @@ import { Grid } from "@material-ui/core";
 import Header from "./components/Header";
 import Content from "./components/Content";
 import About from "./components/About";
-import Step from "./components/Step";
+import Step123 from "./components/Step123";
 import StepContent from "./components/StepContent";
 
 import { Routes, Route } from "react-router-dom";
@@ -22,7 +22,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Content />}></Route>
             <Route path="/about" element={<About />}></Route>
-            <Route path="/step" element={<Step />}></Route>
+            <Route path="/step" element={<Step123 />}></Route>
             <Route path="/stepcontent" element={<StepContent />}></Route>
           </Routes>
         </Grid>

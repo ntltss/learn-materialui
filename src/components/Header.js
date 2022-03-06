@@ -1,6 +1,7 @@
 import React from "react";
 import { AppBar, Toolbar, makeStyles, Typography } from "@material-ui/core";
 import { AccountCircleOutlined } from "@material-ui/icons";
+import { red } from "@material-ui/core/colors";
 
 const useStyles = makeStyles(() => ({
   typographyStyles: {
